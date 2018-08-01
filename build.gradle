@@ -34,6 +34,11 @@ configurations {
 
 configurations.all {
     resolutionStrategy {
+        // Remove after https://github.com/google/google-http-java-client/issues/438 is resolved
+        force "com.google.http-client:google-http-client:1.23.0"
+        force "com.google.http-client:google-http-client-jackson2:1.23.0"
+        force "com.google.http-client:google-http-client-appengine:1.23.0"
+        force "com.google.http-client:google-http-client-jdo:1.23.0"
         eachDependency { DependencyResolveDetails details ->
             // Replace all instances of Guava JDK5 Backport with vanilla Guava.
             // We have to be very careful when updating libraries that depend on Guava and make sure
